@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OSS_HW2
 Self-Check items
 ○ 새로운 github repo와 netlify에서 새로운 사이트를 생성했는가? 네
@@ -17,3 +18,7 @@ form_js.htm
 form.htm
 ○ 현재까지 프로젝트를 구현하면서 느낀 소감, 어려움, 또는 건의사항은 무엇인가?
 클론코딩에 대해서 완전히 똑같이 해야하는지 약간의 혼동이 있었다. 그리고 예시와 함께 과제설명이 좀 더 자세하게 나왔으면 좋겠다.
+=======
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/I0A_laP1)
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=15823936&assignment_repo_type=AssignmentRepo)
+>>>>>>> hw2/main
