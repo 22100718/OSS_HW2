@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4 - JS를 활용한 동적 페이지 생성</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1{
+            text-align: center;
+            color: #333;
+        }
+
+        #input_append{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button{
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            margin-right: 5px;
+        }
+
+        button:hover{
+            background-color: #0056b3;
+        }
+
+        #div_append div{
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #div_append div:hover{
+            background-color: #d4d4d4;
+        }
+    </style>
+</head>
+<body>
+    <h1>동적 페이지 생성입니다</h1>
+
+    <input type="text" id="input_append" placeholder="추가할 내용을 입력하세요">
+    <button onclick="listener_append()">추가</button>
+    <button onclick="delete_all()">전체 삭제</button>
+
+    <div id="div_append"></div>
+
+    <script>
+        function listener_append(){
+            const div_append = document.getElementById("div_append");
+            const input_append = document.getElementById("input_append").value;
+
+            if (input_append === "" || input_append === undefined){
+                return false;
+            }
+
+            const newDiv = document.createElement("div");
+            newDiv.textContent = input_append;
+            newDiv.onclick = function(){
+                listener_remove(this);
+            };
+
+            div_append.appendChild(newDiv);
+
+            document.getElementById("input_append").value = "";
+        }
+
+        function listener_remove(element){
+            element.remove();
+        }
+
+        function delete_all(){
+            const div_append = document.getElementById("div_append");
+            div_append.innerHTML = "";
+        }
+    </script>
+</body>
+</html>
