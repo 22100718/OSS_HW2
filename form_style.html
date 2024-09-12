@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        width:100%   
+    }
+    
+    h1{
+        background-color: #007bff;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+    }
+
+    p{
+        margin-bottom: 25px;
+    }
+    fieldset{
+        border: 2px solid grey;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+    }
+
+    legend{
+        padding: 0 10px;
+        font-weight: bold;
+    }
+
+    label{
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    textarea{
+        margin-bottom: 20px;
+    }
+
+    button{
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    button:hover{
+        background-color: #0056b3;
+    }
+
+    div{
+        margin-left: 50%;
+    }
+
+</style>
+<body>
+    <div>
+        <form id="rentalForm">
+            <h1>Futsal Facility Rental!<br></h1>
+            <fieldset>
+                <legend>Information</legend>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname">
+                <span class="error" id="fnameError"></span>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname">
+                <span class="error" id="lnameError"></span>
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age">
+                <span class="error" id="ageError"></span>
+            </fieldset>
+            <p>
+                Date<br><br>
+                <input type="datetime-local" name="appointment-time" id="appointment-time">
+                <span class="error" id="dateError"></span>
+            </p>
+            <fieldset>
+                <legend>Payment</legend>
+                <input type="radio" id="credit" name="Payment" value="Credit">
+                <label for="credit">Credit card</label>
+                <input type="radio" id="cash" name="Payment" value="Cash">
+                <label for="cash">Cash</label>
+                <input type="radio" id="account" name="Payment" value="Account">
+                <label for="account">Account transfer</label><br>
+                <span class="error" id="paymentError"></span>
+            </fieldset>
+            <fieldset>
+                <legend>Need</legend>
+                <input type="checkbox" id="shoes" name="shoes" value="Shoes">
+                <label for="shoes">Futsal shoes</label><br>
+                <input type="checkbox" id="water" name="water" value="Water">
+                <label for="water">Water</label><br>
+            </fieldset>
+            Levels<br><br>
+            <select id="level">
+                <optgroup label="Levels">
+                    <option value="first">advanced</option>
+                    <option value="second">intermediate</option>
+                    <option value="third">beginner</option>
+                </optgroup>
+            </select>
+            <br><br>Color<br><br>
+            <input type="color" id="color" name="color" list="list"><br>
+            <datalist id="list">
+                <option value="#ff0000">Red</option>
+                <option value="#00ff00">Green</option>
+                <option value="#0000ff">Blue</option>
+                <option value="#ffff00">Yellow</option>
+                <option value="#ff00ff">Magenta</option>
+            </datalist>
+            <br>Have to know<br>
+            <textarea name="textarea_content"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
