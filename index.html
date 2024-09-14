@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Page</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1{
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button-container{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .button-container a{
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #61dafb;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .button-container a:hover{
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Navigate to Pages</h1>
+    <div class="button-container">
+        <a href="form.html">Go to form.html</a>
+        <a href="form_js.html">Go to form_js.html</a>
+        <a href="form_style.html">Go to form_style.html</a>
+        <a href="form_nostyle.html">Go to form_nostyle.html</a>
+    </div>
+</body>
+</html>
