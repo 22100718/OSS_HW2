@@ -3,53 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Page</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-
-        h1{
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .button-container{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .button-container a{
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: #61dafb;
-            color: white;
-            border-radius: 5px;
-            font-size: 16px;
-            text-align: center;
-            width: 200px;
-        }
-
-        .button-container a:hover{
-            background-color: #21a1f1;
-        }
-    </style>
-</head>
-<body>
-    <h1>Navigate to Pages</h1>
-    <div class="button-container">
-        <a href="form.html">Go to form.html</a>
-        <a href="form_js.html">Go to form_js.html</a>
-        <a href="form_style.html">Go to form_style.html</a>
-        <a href="form_nostyle.html">Go to form_nostyle.html</a>
-    </div>
+    <title>Friend List</title>
+    <link rel="stylesheet" href="my.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <body>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Always expand</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-md-0">
+                <input class="form-control" type="text" placeholder="Search">
+              </form>
+            </div>
+        </nav>
+        <style>
+          .td_title{
+            cursor: pointer;
+          }
+          
+          .td_title:hover{
+            font-size: 1.05em;
+            font-weight: 600;
+          }
+        </style>
+    
+        <div class="container">
+            <h1>친구 목록</h1>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">번호</th>
+                        <th scope="col">이름</th>
+                        <th scope="col">관계</th>
+                        <th scope="col">전화번호</th>
+                        <th scope="col">이메일</th>
+                        <th scope="col">지역</th>
+                        <th scope="col">생일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td class="td_title" onclick="location.href='./view.html'">김세현</td>
+                        <td>친구</td>
+                        <td>010-1234-5678</td>
+                        <td>sehyun@example.com</td>
+                        <td>대전</td>
+                        <td>2003-01-25</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td class="td_title" onclick="location.href='./view.html'">김광일</td>
+                        <td>선배</td>
+                        <td>010-1234-5679</td>
+                        <td>Pangil@example.com</td>
+                        <td>수원</td>
+                        <td>2002-05-29</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td class="td_title" onclick="location.href='./view.html'">전동훈</td>
+                        <td>선임</td>
+                        <td>010-1234-5123</td>
+                        <td>donghun@example.com</td>
+                        <td>인천</td>
+                        <td>2002-04-21</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td class="td_title" onclick="location.href='./view.html'">허민</td>
+                        <td>새섬</td>
+                        <td>010-1235-5678</td>
+                        <td>humin@example.com</td>
+                        <td>부산</td>
+                        <td>1997-05-28</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">5</th>
+                        <td class="td_title" onclick="location.href='./view.html'">문다연</td>
+                        <td>새섬</td>
+                        <td>010-1104-5678</td>
+                        <td>dayeon@example.com</td>
+                        <td>익산</td>
+                        <td>1999-08-21</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">6</th>
+                        <td class="td_title" onclick="location.href='./view.html'">김이안</td>
+                        <td>새내기</td>
+                        <td>010-1124-5678</td>
+                        <td>ian@example.com</td>
+                        <td>용인</td>
+                        <td>2005-12-21</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">7</th>
+                        <td class="td_title" onclick="location.href='./view.html'">최서정</td>
+                        <td>새내기</td>
+                        <td>010-1234-2978</td>
+                        <td>seojung@example.com</td>
+                        <td>서울</td>
+                        <td>2005-12-18</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">8</th>
+                        <td class="td_title" onclick="location.href='./view.html'">김우준</td>
+                        <td>선임</td>
+                        <td>010-1994-2978</td>
+                        <td>woojun@example.com</td>
+                        <td>남양주</td>
+                        <td>2002-12-28</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">9</th>
+                        <td class="td_title" onclick="location.href='./view.html'">강대환</td>
+                        <td>친구</td>
+                        <td>010-1034-2978</td>
+                        <td>daehwan@example.com</td>
+                        <td>고창</td>
+                        <td>2002-10-18</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">10</th>
+                        <td class="td_title" onclick="location.href='./view.html'">문예훈</td>
+                        <td>선배</td>
+                        <td>010-1229-2978</td>
+                        <td>yehun@example.com</td>
+                        <td>광주</td>
+                        <td>2001-12-13</td>
+                    </tr>
+                </tbody>
+            </table>
+        <div style="text-align: right;padding:5px 0px;">
+            <button type="button"  class="btn btn-primary" id="add" onclick="location.href='add.html'">추가</button>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

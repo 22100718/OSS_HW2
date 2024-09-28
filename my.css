@@ -1,0 +1,52 @@
+@media (min-width: 768px) {
+    .container {
+        max-width: 500px; 
+        margin: auto; 
+    }
+
+    .btn {
+        width: 100%; 
+        margin: 10px 10px; 
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        min-width: 100px;
+        padding: 15px;
+        margin: auto;
+    }
+
+    .btn {
+        width: 100%; 
+        margin: 5px 5px; 
+    }
+}
+
+table {
+    background-color: aliceblue;
+    width: 100%;
+    height: auto;
+}
+
+#add {
+    background-color: blue;
+} 
+
+#confirm {
+    background-color: purple;
+} 
+
+#cancel {
+    background-color: red;
+}
+
+#delete{
+    background-color: red;
+}
+#list {
+    background-color: blue;
+}
+#edit {
+    background-color: purple;
+}
