@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX CRUD Page</title>
+</head>
+<body>
+    <h1>AJAX CRUD Page</h1>
+    
+    
+    ID: <input type="text" id="student_id" /><br><br>
+    NAME: <input type="text" id="student_name" /><br><br>
+    AGE: <input type="number" id="student_age" /><br><br>
+    MAJOR: <input type="text" id="student_major" /><br><br>
+
+    <button onclick="getData()">Get Data</button><br><br>
+    <button onclick="createData()">Create Data</button><br><br>
+    <button onclick="updateData()">Update Data</button><br><br>
+    <button onclick="deleteData()">Delete Data</button><br><br>
+    
+    <div id="student_list"></div>
+
+    <script>
+        const apiURL = "http://localhost:3000/students";
+
+        // GET: 데이터 가져오기
+        function getData() {
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", apiURL);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send();
+
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    const students = JSON.parse(xhr.responseText);
+                    displayStudents(students);
+                } else {
+                    console.log("Error:", xhr.status, xhr.statusText);
+                }
+            };
+        }
+
+        // POST: 데이터 추가하기
+        function createData() {
+            const name = document.getElementById("student_name").value;
+            const age = document.getElementById("student_age").value;
+            const major = document.getElementById("student_major").value;
+
+            if (!name || !age || !major) {
+                alert("Please enter name, age, and major.");
+                return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", apiURL);
+            xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+            const data = JSON.stringify({ name, age, major });
+            xhr.send(data);
+
+            xhr.onload = () => {
+                if (xhr.status === 201) {
+                    alert("Data created successfully!");
+                    getData();  // 데이터 목록 새로고침
+                } else {
+                    console.log("Error:", xhr.status, xhr.statusText);
+                }
+            };
+        }
+
+        // PUT: 데이터 수정하기
+        function updateData() {
+            const id = document.getElementById("student_id").value;
+            const name = document.getElementById("student_name").value;
+            const age = document.getElementById("student_age").value;
+            const major = document.getElementById("student_major").value;
+
+            if (!id || !name || !age || !major) {
+                alert("Please enter ID, name, age, and major.");
+                return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("PUT", `${apiURL}/${id}`);
+            xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+            const data = JSON.stringify({ name, age, major });
+            xhr.send(data);
+
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    alert("Data updated successfully!");
+                    getData();  // 데이터 목록 새로고침
+                } else {
+                    console.log("Error:", xhr.status, xhr.statusText);
+                }
+            };
+        }
+
+        // DELETE: 데이터 삭제하기
+        function deleteData() {
+            const id = document.getElementById("student_id").value;
+
+            if (!id) {
+                alert("Please enter ID.");
+                return;
+            }
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("DELETE", `${apiURL}/${id}`);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.send();
+
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    alert("Data deleted successfully!");
+                    getData();  // 데이터 목록 새로고침
+                } else {
+                    console.log("Error:", xhr.status, xhr.statusText);
+                }
+            };
+        }
+
+        // 데이터를 화면에 출력하는 함수
+        function displayStudents(students) {
+            const studentList = document.getElementById("student_list");
+            studentList.innerHTML = "";  // 초기화
+
+            students.forEach(student => {
+                const studentDiv = document.createElement("div");
+                studentDiv.textContent = `ID: ${student.id}, Name: ${student.name}, Age: ${student.age}, Major: ${student.major}`;
+                studentList.appendChild(studentDiv);
+            });
+        }
+    </script>
+</body>
+</html>
