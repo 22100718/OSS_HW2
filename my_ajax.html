@@ -22,12 +22,9 @@
     <div id="student_list"></div>
 
     <script>
-        const apiURL = "http://localhost:3000/students";
-
-        // GET: 데이터 가져오기
         function getData() {
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", apiURL);
+            xhr.open("GET", "http://localhost:3000/students");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send();
 
@@ -41,7 +38,6 @@
             };
         }
 
-        // POST: 데이터 추가하기
         function createData() {
             const name = document.getElementById("student_name").value;
             const age = document.getElementById("student_age").value;
@@ -53,7 +49,7 @@
             }
 
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", apiURL);
+            xhr.open("POST", "http://localhost:3000/students");
             xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
             const data = JSON.stringify({ name, age, major });
@@ -62,14 +58,13 @@
             xhr.onload = () => {
                 if (xhr.status === 201) {
                     alert("Data created successfully!");
-                    getData();  // 데이터 목록 새로고침
+                    getData();
                 } else {
                     console.log("Error:", xhr.status, xhr.statusText);
                 }
             };
         }
 
-        // PUT: 데이터 수정하기
         function updateData() {
             const id = document.getElementById("student_id").value;
             const name = document.getElementById("student_name").value;
@@ -82,7 +77,7 @@
             }
 
             const xhr = new XMLHttpRequest();
-            xhr.open("PUT", `${apiURL}/${id}`);
+            xhr.open("PUT", `${"http://localhost:3000/students"}/${id}`);
             xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
             const data = JSON.stringify({ name, age, major });
@@ -91,14 +86,13 @@
             xhr.onload = () => {
                 if (xhr.status === 200) {
                     alert("Data updated successfully!");
-                    getData();  // 데이터 목록 새로고침
+                    getData();
                 } else {
                     console.log("Error:", xhr.status, xhr.statusText);
                 }
             };
         }
 
-        // DELETE: 데이터 삭제하기
         function deleteData() {
             const id = document.getElementById("student_id").value;
 
@@ -108,7 +102,7 @@
             }
 
             const xhr = new XMLHttpRequest();
-            xhr.open("DELETE", `${apiURL}/${id}`);
+            xhr.open("DELETE", `${"http://localhost:3000/students"}/${id}`);
             xhr.setRequestHeader("Content-Type", "application/json");
 
             xhr.send();
@@ -116,17 +110,16 @@
             xhr.onload = () => {
                 if (xhr.status === 200) {
                     alert("Data deleted successfully!");
-                    getData();  // 데이터 목록 새로고침
+                    getData();
                 } else {
                     console.log("Error:", xhr.status, xhr.statusText);
                 }
             };
         }
 
-        // 데이터를 화면에 출력하는 함수
         function displayStudents(students) {
             const studentList = document.getElementById("student_list");
-            studentList.innerHTML = "";  // 초기화
+            studentList.innerHTML = "";
 
             students.forEach(student => {
                 const studentDiv = document.createElement("div");
